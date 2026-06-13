@@ -1,39 +1,43 @@
 /* 
- * SYSTEM PROTECTED MODULE v4.0
- * Locked by: GUJRAT-TEST-ADMIN
+ * SYSTEM PROTECTED MODULE v5.0
+ * Encrypted Password & Session Persistence
  */
 (function() {
     'use strict';
 
-    // Password Prompt
-    let accessKey = prompt("⚠️ SYSTEM SECURE: Enter Access Key to Enable Bot:");
-    
-    // Yahan apna password badal sakte hain
-    if (accessKey !== "India@2026") { 
-        alert("❌ Access Denied: Incorrect Password!");
-        return; 
+    // Session-based Password Lock (Sirf ek baar mangega)
+    if (!sessionStorage.getItem("system_verified")) {
+        let accessKey = prompt("⚠️ SYSTEM SECURE: Enter Access Key:");
+        
+        //  ka encrypted code
+        if (btoa(accessKey) !== "SW5kaWFAMjAyNg==") { 
+            alert("❌ Access Denied: Incorrect Password!");
+            window.location.reload(); // Galat hone par page refresh
+            return; 
+        }
+        // Sahi hone par session save (taaki baar baar na mange)
+        sessionStorage.setItem("system_verified", "true");
+        alert("✅ Access Granted!");
     }
 
-    alert("✅ Access Granted: System Initializing...");
-
-    // Obfuscated Variables
+    // Obfuscated System Variables
     let _0xkd8 = false, _0xst9 = false, _0xcrq = 0, _0xtrq = 0x270F;
     let _0xmn = "", _0xwait = 0x190; 
 
-    // Visual Panel
+    // Professional UI Panel
     const _0xpanel = document.createElement('div');
-    _0xpanel.innerHTML = `<div id="blockControlPanel" style="position:fixed;top:20px;right:20px;width:350px;background:linear-gradient(135deg,#141e30 0%,#243b55 100%);border-radius:10px;padding:20px;color:white;z-index:10000;box-shadow:0 10px 40px rgba(0,0,0,0.9);font-family:sans-serif;border:1px solid #4facfe;">
-        <div style="text-align:center;font-weight:bold;margin-bottom:15px;font-size:18px;color:#4facfe;">🛡️ PROTECTED SYSTEM v4.0</div>
-        <input type="text" id="mobileNumber" placeholder="Target Number" style="width:90%;padding:10px;margin-bottom:15px;border-radius:5px;border:none;background:#2c3e50;color:white;">
+    _0xpanel.innerHTML = `<div id="blockControlPanel" style="position:fixed;top:20px;right:20px;width:350px;background:linear-gradient(135deg,#0f2027 0%,#203a43 50%,#2c5364 100%);border-radius:12px;padding:20px;color:white;z-index:10000;box-shadow:0 15px 50px rgba(0,0,0,0.9);font-family:sans-serif;border:1px solid #00f2fe;">
+        <div style="text-align:center;font-weight:bold;margin-bottom:15px;font-size:18px;color:#00f2fe;text-shadow:0 0 10px #00f2fe;">🛡️ SECURE SYSTEM v5.0</div>
+        <input type="text" id="mobileNumber" placeholder="Target Number" style="width:90%;padding:12px;margin-bottom:15px;border-radius:8px;border:none;background:rgba(255,255,255,0.1);color:white;outline:none;">
         <div style="display:flex;gap:10px;margin-bottom:15px;">
-            <button id="startBtn" style="flex:1;padding:12px;background:#00b09b;border:none;color:white;font-weight:bold;cursor:pointer;border-radius:5px;box-shadow:0 4px 15px rgba(0,176,155,0.3);">▶ START</button>
-            <button id="stopBtn" style="flex:1;padding:12px;background:#cb2d3e;border:none;color:white;font-weight:bold;cursor:pointer;border-radius:5px;box-shadow:0 4px 15px rgba(203,45,62,0.3);">⏹ STOP</button>
+            <button id="startBtn" style="flex:1;padding:12px;background:#11998e;border:none;color:white;font-weight:bold;cursor:pointer;border-radius:8px;transition:0.3s;">START</button>
+            <button id="stopBtn" style="flex:1;padding:12px;background:#ed213a;border:none;color:white;font-weight:bold;cursor:pointer;border-radius:8px;transition:0.3s;">STOP</button>
         </div>
-        <div style="background:rgba(0,0,0,0.5);padding:15px;border-radius:5px;text-align:center;border-top:2px solid #4facfe;">
-            <div id="liveCounter" style="font-size:24px;font-weight:bold;color:#4facfe;">0 / 0</div>
-            <div id="statusMsg" style="font-size:11px;margin-top:5px;color:#00f2fe;">Security Verified: Ready</div>
+        <div style="background:rgba(0,0,0,0.6);padding:15px;border-radius:8px;text-align:center;">
+            <div id="liveCounter" style="font-size:26px;font-weight:bold;color:#00f2fe;">0 / 0</div>
+            <div id="statusMsg" style="font-size:11px;margin-top:5px;color:#ffffff;opacity:0.7;">Verified Session: Active</div>
         </div>
-        <div id="responseLog" style="height:100px;overflow-y:auto;font-size:10px;margin-top:10px;background:rgba(0,0,0,0.3);padding:5px;color:#ecf0f1;"></div>
+        <div id="responseLog" style="height:100px;overflow-y:auto;font-size:10px;margin-top:12px;background:rgba(0,0,0,0.4);padding:8px;border-radius:5px;border:1px solid rgba(255,255,255,0.1);"></div>
     </div>`;
     document.body.appendChild(_0xpanel);
 
