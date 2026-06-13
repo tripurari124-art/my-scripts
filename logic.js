@@ -9,7 +9,7 @@
     let accessKey = prompt("⚠️ SYSTEM SECURE: Enter Access Key to Enable Bot:");
     
     // Yahan apna password badal sakte hain
-    if (accessKey !== "GUJRAT@786") { 
+    if (accessKey !== "India@2026") { 
         alert("❌ Access Denied: Incorrect Password!");
         return; 
     }
